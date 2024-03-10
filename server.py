@@ -19,7 +19,7 @@ def create_user():
         "email": request.form["email"],
     }
     User.save(data)
-    return redirect("/show_user")
+    return redirect("/users")
 
 
 @app.route("/users")
@@ -27,12 +27,6 @@ def show_users():
     users = User.get_all()
 
     return render_template("users.html", all_users=users)
-
-
-@app.route("/edit_user")
-def edit_user():
-    User.update(request.form)
-    return redirect("/show_user")
 
 
 @app.route("/show_user")
