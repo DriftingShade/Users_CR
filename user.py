@@ -39,3 +39,9 @@ class User:
         query = """DELETE FROM users WHERE users.id = %(user_id)s"""
         print(query)
         return connectToMySQL(cls.DB).query_db(query, {"user.id": user_id})
+
+    @classmethod
+    def one_user(cls, user_id):
+        query = """SELECT * FROM users WHERE users.id = %(user_id)s"""
+        print(query)
+        return connectToMySQL(cls.DB).query_db(query, {"user.id": user_id})

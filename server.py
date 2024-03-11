@@ -29,8 +29,14 @@ def show_users():
     return render_template("users.html", all_users=users)
 
 
-@app.route("/show_user")
-def one_user():
+@app.route("/show_user", methods=["POST"])
+def user():
+    one_user = User.one_user()
+    return redirect("/single_user", one_user=one_user)
+
+
+@app.route("/single_user")
+def single_user():
     return render_template("single_user.html")
 
 
