@@ -13,8 +13,9 @@
   </head>
   <body>
     <h1 class="text-center mb-5">Edit User</h1>
-    <form action="/change_user" method="post">
+    <form action="/change_user/{{ user.id}}" method="post">
       <div class="mb-3 w-50 mx-auto">
+        <input type="hidden" name="id" value="{{ user.id }}">
         <label for="fname" class="form-label">First Name</label>
         <input
           type="text"

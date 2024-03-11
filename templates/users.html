@@ -39,7 +39,12 @@
               <input type="hidden" name="id" value="{{ i.id }}" />
               <input type="submit" class="btn btn-warning" value="View" />
             </a>
-            <a href="#">Delete</a>
+            
+              <form action="/delete_user/{{i.id}}" method="post">
+                <input type="hidden" name="id" value="{{ i.id }}" />
+                <input type="submit" class="btn btn-danger" value="Delete" />
+              </form>
+            
           </td>
         </tr>
         {% endfor %}

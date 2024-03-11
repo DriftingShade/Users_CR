@@ -39,16 +39,22 @@ def edit_user(user_id):
     user = User.one_user({'id' : user_id})
     return render_template("edit_user.html", user=user)
 
-@app.route("/change_user", methods=['POST'])
-def update_user():
+@app.route("/change_user/<int:user_id>", methods=["POST"])
+def update_user(user_id):
     data = {
-        "fname": request.form["fname"],
-        "lname": request.form["lname"],
-        "email": request.form["email"],
+        "id": user_id,
+        "first_name": request.form["fname"],
+        "last_name": request.form["lname"],
+        "email": request.form["email"]
     }
 
     User.update(data)
-    return redirect("/show_user/<int:user_id>")
+    return redirect("/users")
+
+@app.route("/delete_user/<int:user_id>", methods=["POST"])
+def delete_user(user_id):
+    User.delete(user_id)
+    return redirect("/users")
 
 
 if __name__ == "__main__":
