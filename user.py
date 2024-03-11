@@ -34,7 +34,7 @@ class User:
                 WHERE id = %(id)s;"""
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
-        return results[0]
+        return results
 
     @classmethod
     def delete(cls, user_id):

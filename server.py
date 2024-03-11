@@ -34,6 +34,22 @@ def user(user_id):
     user = User.one_user({'id' : user_id})
     return render_template("single_user.html", user=user)
 
+@app.route("/update_user/<int:user_id>")
+def edit_user(user_id):
+    user = User.one_user({'id' : user_id})
+    return render_template("edit_user.html", user=user)
+
+@app.route("/change_user", methods=['POST'])
+def update_user():
+    data = {
+        "fname": request.form["fname"],
+        "lname": request.form["lname"],
+        "email": request.form["email"],
+    }
+
+    User.update(data)
+    return redirect("/show_user/<int:user_id>")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
