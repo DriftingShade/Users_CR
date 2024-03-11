@@ -26,16 +26,16 @@
       <tbody>
         {% for i in all_users %}
         <tr>
-          <input type="hidden" name="user_id" value="{{ user_id }}" />
           <td>{{ i.first_name }}</td>
           <td>{{ i.last_name }}</td>
           <td>{{ i.email }}</td>
           <td>{{ i.created_at }}</td>
           <td>
-            <a href="#">Edit</a> |
-            <form action="/show_user">
+            <a href="">Edit</a> |
+            <a href="/show_user/{{i.id}}">
+              <input type="hidden" name="id" value="{{ i.id }}" />
               <input type="submit" class="btn btn-warning" value="View" />
-            </form>
+            </a>
             <a href="#">Delete</a>
           </td>
         </tr>

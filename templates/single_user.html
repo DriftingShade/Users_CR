@@ -12,15 +12,17 @@
     <title>User Info</title>
   </head>
   <body>
-    <h1 class="text-center mb-5">User {{ user_id }}</h1>
+    <h1 class="text-center mb-5">User {{ user.id }}</h1>
     <div class="card mx-auto" style="width: 18rem">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Full Name: {{ fname }} {{ lname }}</li>
-        <li class="list-group-item">Email: {{ email }}</li>
-        <li class="list-group-item">Created At: {{ created_at }}</li>
-        <li class="list-group-item">Last Updated On: {{ updated_at }}</li>
+        <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">Created At: {{ user.created_at }}</li>
+        <li class="list-group-item">Last Updated On: {{ user.updated_at }}</li>
       </ul>
-      <form action="/edit_user"></form>
+      <form action="/edit_user">
+        <input type="submit" class="btn btn-warning" value="Edit User">
+      </form>
     </div>
   </body>
 </html>
