@@ -38,13 +38,18 @@
           value="{{user.email}}"
           name="email"
         />
-        <input
-          type="submit"
-          class="btn btn-success mt-3"
-          value="Update User"
-        />
+        <div class="d-flex container justify-content-between">
+          <input
+            type="submit"
+            class="btn btn-success mt-3"
+            value="Update User"
+          />
+          </form>
+          <form action="/delete_user/{{user.id}}" method="post">
+            <input type="submit" class="btn btn-danger mt-3" value="Delete User">
+          </form>
+        </div>
       </div>
-    </form>
     <div class="d-flex justify-content-center">
       <form action="/users">
         <input type="submit" class="btn btn-primary" value="See All Users" />
