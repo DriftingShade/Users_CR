@@ -15,13 +15,26 @@
     <h1 class="text-center mb-5">User {{ user.id }}</h1>
     <div class="card mx-auto" style="width: 18rem">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
+        <li class="list-group-item">
+          Full Name: {{ user.first_name }} {{ user.last_name }}
+        </li>
         <li class="list-group-item">Email: {{ user.email }}</li>
         <li class="list-group-item">Created At: {{ user.created_at }}</li>
         <li class="list-group-item">Last Updated On: {{ user.updated_at }}</li>
       </ul>
-      <form action="/update_user/{{user.id}}">
-        <input type="submit" class="btn btn-warning" value="Edit User">
+      <div class="d-flex container justify-content-between">
+        <form action="/update_user/{{user.id}}">
+          <input type="submit" class="btn btn-warning" value="Edit User" />
+        </form>
+        <form action="/delete_user/{{user.id}}" method="post">
+          <input type="hidden" name="id" value="{{ user.id }}" />
+          <input type="submit" class="btn btn-danger" value="Delete" />
+        </form>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <form action="/users">
+        <input type="submit" class="btn btn-primary" value="See All Users" />
       </form>
     </div>
   </body>
